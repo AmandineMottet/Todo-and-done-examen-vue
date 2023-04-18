@@ -1,0 +1,67 @@
+*{
+    margin:5px;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonBlack {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+
+}
+
+.main{
+    background-color: #2c3e50;
+    display: flex;
+
+}
+
+.block{
+    background-color: red;
+}
+
+.firstBlock{
+    background-color: blue;
+}
+
+.blockHeader{
+    background-color: yellow;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.blockHeaderLeft{
+    display: flex;
+    align-items: center;
+}
+
+.blockHeaderRight{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buttonAdd{
+
+}
+
+.buttonProfile{
+
+}
+
+.blockInside{
+    background-color:green;
+}
+
+.blockTitle{
+    background-color: purple;
+}
