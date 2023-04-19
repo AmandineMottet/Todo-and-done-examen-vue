@@ -31,12 +31,13 @@ header{
 }
 
 .blockHeader{
-    background-color: #e9f4f5;
+    background-color: #bcc6a0;
     min-height: 100px;
     display: flex;
     justify-content: space-between;
     border:thin solid dimgrey;
     width:400px;
+    box-shadow: 10px 5px 5px grey;
 }
 
 .blockHeaderLeft{
@@ -66,4 +67,13 @@ header{
 .blockTitle{
 
     font-size: larger;
+}
+
+
+.cards{
+    background-color:#a0c6bd ;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
