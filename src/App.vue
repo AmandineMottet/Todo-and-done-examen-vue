@@ -42,27 +42,23 @@
               </div>
             </div>
             <div class="blockInside">
-              <h3 class="blockTitle">Aujourd'hui</h3>
+
               <div v-for="mine in mines" class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ mine.name}}</h5>
-                  <p class="card-text">{{ mine.collab}}</p>
-                  <p class="card-text">{{ mine.deadline}}</p>
-                  <p class="card-text">{{ mine.description}}</p>
+                  <h5 class="card-title">{{ mine.name }}</h5>
+                  <p class="card-text">{{ mine.collab }}</p>
+                  <p class="card-text">{{ mine.deadline }}</p>
+                  <p class="card-text">{{ mine.description }}</p>
                   <div class="d-flex justify-content-end">
-                    <button class="btn btn-warning me-2">
-                      <i class="fa-solid fa-pen"></i>
+                    <button class="btn btn-warning me-2" @click="update(mine.name)">
+                      <i class="fa-solid fa-pen"></i >
                     </button>
-                    <button class="btn btn-danger" @click="deleateTask(mine.name)">
+                    <button class="btn btn-danger" @click="deleteTask(mine.name)">
                       <i class="fa-solid fa-trash"></i>
                     </button>
                   </div>
                 </div>
               </div>
-              <h3 class="blockTitle">Demain</h3>
-              <div class="card"></div>
-              <h3 class="blockTitle">A venir</h3>
-              <div class="card"></div>
             </div>
           </div>
         </div>
@@ -79,15 +75,15 @@
 
             </div>
             <div class="blockInside">
-              <h3 class="blockTitle">Aujourd'hui</h3>
+
               <div v-for="family in families" class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ family.name}}</h5>
-                  <p class="card-text">{{ family.collab}}</p>
-                  <p class="card-text">{{ family.deadline}}</p>
-                  <p class="card-text">{{ family.description}}</p>
+                  <h5 class="card-title">{{ family.name }}</h5>
+                  <p class="card-text">{{ family.collab }}</p>
+                  <p class="card-text">{{ family.deadline }}</p>
+                  <p class="card-text">{{ family.description }}</p>
                   <div class="d-flex justify-content-end">
-                    <button class="btn btn-warning me-2">
+                    <button class="btn btn-warning me-2" @click="update(family.name)">
                       <i class="fa-solid fa-pen"></i>
                     </button>
                     <button class="btn btn-danger" @click="deleteTask(family.name)">
@@ -96,10 +92,7 @@
                   </div>
                 </div>
               </div>
-              <h3 class="blockTitle">Demain</h3>
-              <div class="card"></div>
-              <h3 class="blockTitle">A venir</h3>
-              <div class="card"></div>
+
             </div>
           </div>
         </div>
@@ -116,15 +109,14 @@
 
             </div>
             <div class="blockInside">
-              <h3 class="blockTitle">Aujourd'hui</h3>
               <div v-for="work in works" class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">{{ work.name}}</h5>
-                  <p class="card-text">{{ work.collab}}</p>
-                  <p class="card-text">{{ work.deadline}}</p>
-                  <p class="card-text">{{ work.description}}</p>
+                  <h5 class="card-title">{{ work.name }}</h5>
+                  <p class="card-text">{{ work.collab }}</p>
+                  <p class="card-text">{{ work.deadline }}</p>
+                  <p class="card-text">{{ work.description }}</p>
                   <div class="d-flex justify-content-end">
-                    <button class="btn btn-warning me-2">
+                    <button class="btn btn-warning me-2" @click="update(work.name)">
                       <i class="fa-solid fa-pen"></i>
                     </button>
                     <button class="btn btn-danger" @click="deleteTask(work.name)">
@@ -133,10 +125,6 @@
                   </div>
                 </div>
               </div>
-              <h3 class="blockTitle">Demain</h3>
-              <div class="card"></div>
-              <h3 class="blockTitle">A venir</h3>
-              <div class="card"></div>
             </div>
           </div>
         </div>
@@ -208,17 +196,20 @@
 
 
 <script>
+
+
 export default {
   data() {
     return {
       newTask: {
         name: '',
-        groupe:'',
+        groupe: '',
         collab: '',
         deadline: '',
         description: '',
       },
       tasks: [],
+
     };
   },
   methods: {
@@ -245,24 +236,40 @@ export default {
       });
       this.tasks.splice(index, 1);
     },
-    update() {
+
+    update(name) {
+      let index = this.tasks.findIndex(function (el) {
+        return el.name === name;
+      });
+
 
     },
   },
   computed: {
+
     mines() {
-      return this.tasks.filter(el => el.groupe === 'mine');
-      /*
-      Equivant à :
-      return this.animals.filter(function(el){
-          return el.type === 'bloup'
-       */
+      return this.tasks.filter(el => el.groupe === 'mine')
+          .sort((a, b) => {
+            const dateA = new Date(a.deadline);
+            const dateB = new Date(b.deadline);
+            return dateA.getTime() - dateB.getTime();
+          });
     },
     families() {
-      return this.tasks.filter(el => el.groupe=== 'family');
+      return this.tasks.filter(el => el.groupe === 'family')
+          .sort((a, b) => {
+              const dateA = new Date(a.deadline);
+              const dateB = new Date(b.deadline);
+              return dateA.getTime() - dateB.getTime();
+            });
     },
     works() {
-      return this.tasks.filter(el => el.groupe === 'work');
+      return this.tasks.filter(el => el.groupe === 'work')
+          .sort((a, b) => {
+            const dateA = new Date(a.deadline);
+            const dateB = new Date(b.deadline);
+            return dateA.getTime() - dateB.getTime();
+          });
     },
   },
 }
