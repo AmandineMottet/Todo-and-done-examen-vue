@@ -52,4 +52,10 @@ header {
   padding-left: 10px;
 }
 
+.modalBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 /*# sourceMappingURL=main.css.map */
