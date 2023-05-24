@@ -8,6 +8,7 @@
                             <a id="ToDo" class="nav-link navbar-dark bg-dark active text-white rounded-3"
                                aria-current="page"
                                href="#">To Do - And done!</a>
+                            
                         </li>
                         <li class="nav-item">
                           <router-link class="nav-link active" to="/mine">Mes tâches</router-link>
@@ -24,8 +25,21 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary  buttonAdd btn btn-dark btn-sm" type="button"
+                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li> Couleur</li>
+                    <li><input v-model="params.work" type="color" id="color"></li>
+                </ul>
+            </div>
+
+
             <div class="buttonBlack">
-                <button class="btn btn-dark btn-lg rounded-circle">A</button>
+                <button class="btn btn-lg rounded-circle">A</button>
             </div>
         </header>
         <hr>
@@ -165,7 +179,7 @@
         </main>
         <footer>
             <!-- Button trigger modal -->
-            <button type="button" class="modalBtn btn btn-primary btn-dark rounded-circle p-0" style="width: 60px; height:60px" data-bs-toggle="modal" data-bs-target="#myModal">
+            <button type="button" id="btnDeMerde" class="modalBtn btn btn-primary rounded-circle p-0" style="width: 60px; height:60px" data-bs-toggle="modal" data-bs-target="#myModal">
                 <i class="fa-solid fa-plus fa-xl" style="color:white;"></i>
             </button>
             <!-- Modal -->

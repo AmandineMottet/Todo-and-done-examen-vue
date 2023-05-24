@@ -9,11 +9,24 @@ header{
   align-items: center;
 }
 
+button, a{
+  background-color: #DBB3B3;
+  border-radius: 4px;
+
+}
+
+#btnDeMerde{
+  background-color: #DBB3B3;
+  border-radius: 4px;
+  border:none;
+}
+
 .buttonBlack {
   display: flex;
   align-items: center;
   padding-bottom: 5px;
-
+  background-color: #DBB3B3;
+  border-radius: 50%;
 }
 
 .containerMine{
@@ -31,7 +44,7 @@ header{
 }
 
 .blockHeader{
-  background-color: #bcc6a0;
+  background-color: #B3DBDA;
   min-height: 100px;
   display: flex;
   justify-content: space-between;
@@ -71,7 +84,7 @@ header{
 
 
 .cards{
-  background-color:#a0c6bd ;
+  background-color: #a0e7f1;
   min-height: 50px;
   display: flex;
   align-items: center;
