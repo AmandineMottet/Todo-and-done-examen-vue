@@ -1,7 +1,34 @@
-import { createApp } from 'vue'
+import{createRouter, createWebHistory} from 'vue-router';
+
+import Mine from './components/Mine.vue';
+import Family from './components/Family.vue';
+import Work from './components/Work.vue';
+
 import App from './App.vue'
+import * as Vue from 'vue';
 
-import './assets/main.css'
+const routes =[
+    {
+        path:'/mine',
+        component: Mine
+    },
+    {
+        path:'/family',
+        component: Family
+    },
+    {
+        path:'/work',
+        component: Work
+    },
+];
 
-let app = createApp(App);
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+});
+
+const app = Vue.createApp(App);
+app.use(router);
 app.mount('#app');
+
+

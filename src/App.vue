@@ -10,17 +10,17 @@
                                href="#">To Do - And done!</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Mes tâches</a>
+                          <router-link class="nav-link active" to="/mine">Mes tâches</router-link>
+                        </li>
+
+                        <li class="nav-item">
+                          <router-link class="nav-link active" to="/family">Couple/famille</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Couple / Famille</a>
+                          <router-link class="nav-link active" to="/work">Travail</router-link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Travail</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true" href="#">Ajouter</a>
-                        </li>
+
+                      <router-view></router-view>
                     </ul>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                     <p class="card-text">{{ mine.deadline }}</p>
                                     <p class="card-text">{{ mine.description }}</p>
                                     <div class="d-flex justify-content-end">
-                                        <button class="btn btn-warning me-2 btn-sm" @click="update(mine.index)">
+                                        <button class="btn btn-warning me-2 btn-sm" @click="update(mine.index)"  data-bs-toggle="modal" data-bs-target="#modalUpdate">
                                             <i class="fa-solid fa-pen fa-sm"></i>
                                         </button>
                                         <button class="btn btn-danger btn-sm" @click="deleteTask(mine.index)">
@@ -107,6 +107,7 @@
                                     <div class="d-flex justify-content-end">
                                         <button class="btn btn-warning me-2" @click="update(family.index)">
                                             <i class="fa-solid fa-pen"></i>
+
                                         </button>
                                         <button class="btn btn-danger" @click="deleteTask(family.index)">
                                             <i class="fa-solid fa-trash"></i>
@@ -216,6 +217,65 @@
                     </div>
                 </form>
             </div>
+
+
+
+
+          <!-- Modal Update -->
+          <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+            <form class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalUpdate">Modifier la tâche</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label class="form-label" for="name">Nom</label>
+                      <input v-model="newTask.name" class="form-control" type="text" id="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="groupe">Catégorie</label>
+                      <select v-model="newTask.groupe" class="form-control" id="groupe">
+                        <option value="" disabled>Choisissez un type</option>
+                        <option value="mine">Mes tâches</option>
+                        <option value="family">Famille / Couple</option>
+                        <option value="work">Travail</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="collab">Collaboration</label>
+                      <select v-model="newTask.collab" class="form-control" id="collab">
+                        <option value="" disabled>Choisissez un type</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="deadline">Deadline</label>
+                      <input v-model="newTask.deadline" class="form-control" type="date" id="deadline">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="description">Description</label>
+                      <textarea v-model="newTask.description" class="form-control" id="description">Description</textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-primary" @click="update">Modifier</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+
+
+
+
         </footer>
 
 
@@ -245,6 +305,13 @@ export default {
                     work: 'pink',
                 },
             ],
+            updateTask: {
+              name: '',
+              groupe: '',
+              collab: '',
+              deadline: '',
+              description: '',
+            },
         };
 
     },
