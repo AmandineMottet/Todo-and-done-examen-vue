@@ -8,17 +8,17 @@
                             <a id="ToDo" class="nav-link navbar-dark bg-dark active text-white rounded-3"
                                aria-current="page"
                                href="#">To Do - And done!</a>
-                            
+                            <img src="../public/Files/logo-1-Copie.png" alt="">
                         </li>
                         <li class="nav-item">
-                          <router-link class="nav-link active" to="/mine">Mes tâches</router-link>
+                          <router-link class="nav-link active pinkButton" to="/mine">Mes tâches</router-link>
                         </li>
 
                         <li class="nav-item">
-                          <router-link class="nav-link active" to="/family">Couple/famille</router-link>
+                          <router-link class="nav-link active pinkButton" to="/family">Couple/famille</router-link>
                         </li>
                         <li class="nav-item">
-                          <router-link class="nav-link active" to="/work">Travail</router-link>
+                          <router-link class="nav-link active pinkButton" to="/work">Travail</router-link>
                         </li>
 
                       <router-view></router-view>
@@ -26,21 +26,24 @@
                 </div>
             </div>
 
-            <div class="dropdown">
-                <button class="btn btn-secondary  buttonAdd btn btn-dark btn-sm" type="button"
+            <div class="dropdown dropstart">
+                <button class="pinkButton roundButton btn btn-outline-light rounded-circle p-3" type="button"
                         id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-user" style="color: white;"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li> Couleur</li>
-                    <li><input v-model="params.work" type="color" id="color"></li>
+
+                    <!-- todo : cration de compte -->
+
+                    <li ><i class="fa-solid fa-user" style="color: #DBB3B3;"></i><a href="/account" class="linkSimple">Votre compte</a></li>
+
+                    <!-- todo : après création compte-->
+
+                    <li> Se déconnecter </li>
                 </ul>
             </div>
 
 
-            <div class="buttonBlack">
-                <button class="btn btn-lg rounded-circle">A</button>
-            </div>
         </header>
         <hr>
         <main class="main">
@@ -119,9 +122,8 @@
                                     <p class="card-text">{{ family.deadline }}</p>
                                     <p class="card-text">{{ family.description }}</p>
                                     <div class="d-flex justify-content-end">
-                                        <button class="btn btn-warning me-2" @click="update(family.index)">
-                                            <i class="fa-solid fa-pen"></i>
-
+                                        <button class="btn btn-warning me-2 btn-sm" @click="update(family.index)"  data-bs-toggle="modal" data-bs-target="#modalUpdate">
+                                            <i class="fa-solid fa-pen fa-sm"></i>
                                         </button>
                                         <button class="btn btn-danger" @click="deleteTask(family.index)">
                                             <i class="fa-solid fa-trash"></i>
@@ -162,8 +164,8 @@
                                     <p class="card-text">{{ work.deadline }}</p>
                                     <p class="card-text">{{ work.description }}</p>
                                     <div class="d-flex justify-content-end">
-                                        <button class="btn btn-warning me-2" @click="update(work.index)">
-                                            <i class="fa-solid fa-pen"></i>
+                                        <button class="btn btn-warning me-2 btn-sm" @click="update(work.index)"  data-bs-toggle="modal" data-bs-target="#modalUpdate">
+                                            <i class="fa-solid fa-pen fa-sm"></i>
                                         </button>
                                         <button class="btn btn-danger" @click="deleteTask(work.index)">
                                             <i class="fa-solid fa-trash"></i>
@@ -179,7 +181,7 @@
         </main>
         <footer>
             <!-- Button trigger modal -->
-            <button type="button" id="btnDeMerde" class="modalBtn btn btn-primary rounded-circle p-0" style="width: 60px; height:60px" data-bs-toggle="modal" data-bs-target="#myModal">
+            <button type="button"  class="pinkButton modalBtn btn btn-primary rounded-circle p-0" style="width: 60px; height:60px" data-bs-toggle="modal" data-bs-target="#myModal">
                 <i class="fa-solid fa-plus fa-xl" style="color:white;"></i>
             </button>
             <!-- Modal -->
