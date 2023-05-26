@@ -2,15 +2,18 @@
   margin: 5px;
 }
 
+h2 {
+  padding-bottom: 20px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
-
-  ul {
-    height: 90px;
-  }
+}
+header ul {
+  height: 90px;
 }
 
 .nav-item {
@@ -19,22 +22,9 @@ header {
 }
 
 .pinkButton {
-  background-color: #a15c5c !important;
+  background-color: #DBB3B3 !important;
   border-radius: 4px;
   border: none !important;
-  color: white !important;
-
-  &:hover {
-    background-color: #622d2d !important;
-  }
-}
-
-.darkButton {
-  background-color: #414141 !important;
-
-  &:hover {
-    background-color: black !important;
-  }
 }
 
 .linkSimple {
@@ -42,14 +32,27 @@ header {
   color: black;
 }
 
+#btnDeMerde {
+  background-color: #DBB3B3;
+  border-radius: 4px;
+  border: none;
+}
+
+#textRight {
+  text-align: center;
+}
+
+.buttonBlack {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  background-color: #DBB3B3;
+  border-radius: 50%;
+}
 
 .containerMine {
   display: flex;
   justify-content: space-evenly;
-}
-
-.main {
-  margin: 0 50px;
 }
 
 .blockHeader {
@@ -68,11 +71,9 @@ header {
 }
 
 .blockHeaderRight {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .blockTitle {
@@ -91,5 +92,15 @@ header {
   position: fixed;
   bottom: 20px;
   right: 20px;
-
 }
+
+.myDisplay {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+.myDisplay .myTable {
+  margin-right: 300px;
+}
+
+/*# sourceMappingURL=mainAccount.css.map */

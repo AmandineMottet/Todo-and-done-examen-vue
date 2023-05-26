@@ -1,0 +1,129 @@
+*{
+  margin:5px;
+}
+h2{
+  padding-bottom: 20px;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  ul{
+    height:90px;
+  }
+}
+
+.nav-item{
+  display: flex;
+  align-items:center;
+}
+
+.pinkButton{
+  background-color: #DBB3B3!important;
+  border-radius: 4px;
+  border:none!important;
+}
+
+.linkSimple{
+  text-decoration: none;
+  color:black;
+}
+
+#btnDeMerde{
+  background-color: #DBB3B3;
+  border-radius: 4px;
+  border:none;
+}
+
+#textRight{
+  text-align: center;
+}
+
+.buttonBlack {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+  background-color: #DBB3B3;
+  border-radius: 50%;
+}
+
+.containerMine{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.block{
+
+}
+
+.firstBlock{
+
+}
+
+.blockHeader{
+  background-color: #B3DBDA;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  border:thin solid dimgrey;
+  width:400px;
+  box-shadow: 10px 5px 5px grey;
+}
+
+.blockHeaderLeft{
+  display: flex;
+  align-items: center;
+}
+
+.blockHeaderRight{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttonAdd{
+
+}
+
+.buttonProfile{
+
+}
+
+.blockInside{
+
+}
+
+.blockTitle{
+
+  font-size: larger;
+}
+
+
+.cards{
+  background-color: #a0e7f1;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.modalBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+
+}
+
+.myDisplay{
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  .myTable{
+    margin-right: 300px;
+  }
+}

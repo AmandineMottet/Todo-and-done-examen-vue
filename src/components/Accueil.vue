@@ -1,15 +1,54 @@
 <template>
-  <main class="main">
+  <main class="container-fluid">
     <div class="containerMine">
       <div class="block">
         <div class="firstBlock">
           <div :style="taskColor('mine')" class="blockHeader mb-5 rounded">
             <div class="blockHeaderLeft">
+              <h2>Mes tâches</h2>
+            </div>
+            <div class="blockHeaderRight">
+              <div class="dropdown">
+                <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
+                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-gear"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li> Couleur</li>
+                  <li><input v-model="params.mine" type="color" id="color"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="blockInside">
+            <div v-for="mine in mines" class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ mine.name }}</h5>
+                <p class="card-text">{{ mine.deadline }}</p>
+                <p class="card-text">{{ mine.description }}</p>
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-warning me-2 btn-sm" @click="update(mine.index)" data-bs-toggle="modal"
+                          data-bs-target="#modalUpdate">
+                    <i class="fa-solid fa-pen fa-sm"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" @click="deleteTask(mine.index)">
+                    <i class="fa-solid fa-trash fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="firstBlock">
+          <div :style="taskColor('family')" class="blockHeader mb-5 rounded">
+            <div class="blockHeaderLeft">
               <h2>Couple / famille</h2>
             </div>
             <div class="blockHeaderRight">
               <div class="dropdown">
-                <button class="btn btn-secondary  buttonAdd btn btn-dark btn-sm" type="button"
+                <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
                         id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-gear"></i>
                 </button>
@@ -18,12 +57,9 @@
                   <li><input v-model="params.family" type="color" id="color"></li>
                 </ul>
               </div>
-              <button class="buttonProfile btn btn-dark btn-sm rounded-circle">A</button>
             </div>
-
           </div>
           <div class="blockInside">
-
             <div v-for="family in families" class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{ family.name }}</h5>
@@ -43,9 +79,48 @@
           </div>
         </div>
       </div>
+      <div class="block">
+        <div class="firstBlock">
+          <div :style="taskColor('work')" class="blockHeader mb-5 rounded">
+            <div class="blockHeaderLeft">
+              <h2>Travail</h2>
+            </div>
+            <div class="blockHeaderRight">
+              <div class="dropdown">
+                <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
+                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-gear"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li> Couleur</li>
+                  <li><input v-model="params.work" type="color" id="color"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="blockInside">
+            <div v-for="work in works" class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ work.name }}</h5>
+                <p class="card-text">{{ work.deadline }}</p>
+                <p class="card-text">{{ work.description }}</p>
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-warning me-2 btn-sm" @click="update(work.index)" data-bs-toggle="modal"
+                          data-bs-target="#modalUpdate">
+                    <i class="fa-solid fa-pen fa-sm"></i>
+                  </button>
+                  <button class="btn btn-danger" @click="deleteTask(work.index)">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
-
 
   <footer>
     <!-- Button trigger modal -->
@@ -77,15 +152,6 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="collab">Collaboration</label>
-                <select v-model="newTask.collab" class="form-control" id="collab">
-                  <option value="" disabled>Choisissez un type</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label class="form-label" for="deadline">Deadline</label>
                 <input v-model="newTask.deadline" class="form-control" type="date" id="deadline">
               </div>
@@ -97,7 +163,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary" @click="create">Sauvegarder</button>
+            <button type="button" class="btn btn-primary" @click="create" data-bs-dismiss="modal">Sauvegarder</button>
           </div>
         </div>
       </form>
@@ -128,15 +194,6 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="collab">Collaboration</label>
-                <select v-model="newTask.collab" class="form-control" id="collab">
-                  <option value="" disabled>Choisissez un type</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label class="form-label" for="deadline">Deadline</label>
                 <input v-model="newTask.deadline" class="form-control" type="date" id="deadline">
               </div>
@@ -148,7 +205,7 @@
           </div>
           <div class="modal-footer">
 
-            <button type="button" class="btn btn-primary" @click="update">Modifier</button>
+            <button type="button" class="btn btn-primary" @click="store" data-bs-dismiss="modal">Modifier</button>
           </div>
         </div>
       </form>
@@ -157,7 +214,9 @@
 
   </footer>
 
+
 </template>
+
 
 <script>
 
@@ -170,12 +229,7 @@ export default {
         deadline: '',
         description: '',
       },
-      tasks: [{
-        name: 'a',
-        groupe: 'mine',
-        deadline: '2023-05-01',
-        description: 'ds',
-      }],
+      tasks: [],
       index: 1,
       params: [
         {
@@ -290,5 +344,6 @@ export default {
 
   },
 }
+
 
 </script>

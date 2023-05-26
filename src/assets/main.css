@@ -6,12 +6,32 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
+}
+header ul {
+  height: 90px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .pinkButton {
-  background-color: #DBB3B3 !important;
+  background-color: #a15c5c !important;
   border-radius: 4px;
   border: none !important;
+  color: white !important;
+}
+.pinkButton:hover {
+  background-color: #622d2d !important;
+}
+
+.darkButton {
+  background-color: #414141 !important;
+}
+.darkButton:hover {
+  background-color: black !important;
 }
 
 .linkSimple {
@@ -19,23 +39,13 @@ header {
   color: black;
 }
 
-#btnDeMerde {
-  background-color: #DBB3B3;
-  border-radius: 4px;
-  border: none;
-}
-
-.buttonBlack {
-  display: flex;
-  align-items: center;
-  padding-bottom: 5px;
-  background-color: #DBB3B3;
-  border-radius: 50%;
-}
-
 .containerMine {
   display: flex;
   justify-content: space-evenly;
+}
+
+.main {
+  margin: 0 50px;
 }
 
 .blockHeader {
