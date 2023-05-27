@@ -11,7 +11,7 @@
 
               <div class="dropdown">
                 <button class="btn btn-secondary  buttonAdd btn btn-dark btn-sm" type="button"
-                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                         data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-gear"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -21,7 +21,6 @@
               </div>
 
 
-              <button class="buttonProfile btn btn-dark btn-sm rounded-circle">A</button>
             </div>
           </div>
           <div class="blockInside">

@@ -10,7 +10,7 @@
                         <div class="blockHeaderRight">
                             <div class="dropdown">
                                 <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
-                                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                         data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-gear"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -50,7 +50,7 @@
                         <div class="blockHeaderRight">
                             <div class="dropdown">
                                 <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
-                                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                         data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-gear"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -90,7 +90,7 @@
                         <div class="blockHeaderRight">
                             <div class="dropdown">
                                 <button class="btn btn-secondary buttonAdd darkButton btn-sm" type="button"
-                                        id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                         data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-gear"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
