@@ -1,4 +1,6 @@
 <template>
+    
+
     <div>
         <main>
             <div class="container global">
@@ -6,36 +8,18 @@
                     <img src="/public/Files/logo1-big.png" alt="logoTodo">
                     <h2>Avec Todo and Done, get shit done !</h2>
                 </div>
-
-
-                <div v-if="passwordOn === false" class="rightSide">
+                <div class="rightSide">
                     <div class="container container-fluid">
                         <form action="#">
-                            <h4 class="card-title pb-3">Connexion</h4>
-                            <input v-model="newAccount.email" type="email" placeholder="Email">
-                            <input v-model="newAccount.password" type="password" placeholder="Mot de passe">
-                            <button class="btn btnBlue"><a href="/" class="linkSimple"> Se connecter </a></button>
-                            <button class="buttonLink" @click="passwordOn=true">Mot de passe oublié ? </button>
+                            <input v-model="newAccount.email" type="email" placeholder="Email" >
+                            <input v-model="newAccount.password" type="password" placeholder="Mot de passe" >
+                            <button class="btn btnBlue"><a href="/" class="linkSimple"> Se connecter </a> </button>
                             <!-- Button trigger modal -->
-                            <button type="button" class="modalBtn btn btnPink" data-bs-toggle="modal"
-                                    data-bs-target="#myModal">Créer un compte
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div v-else-if="passwordOn === true" class="rightSide">
-                    <div class="container container-fluid">
-                        <form action="#">
-                            <h4 class="card-title pb-3">Changez votre mot de passe</h4>
-                            <input type="password" placeholder="Ancien mot de passe">
-                            <input type="password" placeholder="Nouveau mot de passe">
-                            <button @click="passwordOn=false" type="button" class="modalBtn btn btn-success">Modifier</button>
+                            <button type="button" class="modalBtn btn btnPink" data-bs-toggle="modal" data-bs-target="#myModal">Créer un compte</button>
                         </form>
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
@@ -61,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="email">Email</label>
-                                    <input v-model="newAccount.email" class="form-control" type="email" id="email">
+                                    <input v-model="newAccount.email"  class="form-control" type="email" id="email">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="mdp">Mot de passe</label>
@@ -71,23 +55,22 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Get organized !
-                            </button>
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Get organized !</button>
                         </div>
                     </div>
                 </form>
             </div>
 
 
+
         </main>
 
     </div>
 
+
 </template>
 
-
 <script>
-
 
 export default {
     data() {
@@ -101,7 +84,6 @@ export default {
             },
             accounts: [],
             index: 1,
-            passwordOn:false,
         };
     },
     methods: {
@@ -125,10 +107,11 @@ export default {
         },
     },
     computed: {
-        account() {
+        account(){
             return this.newAccount;
         },
     },
 }
 
 </script>
+
